@@ -25,6 +25,7 @@ RUN set -ex \
 	&& tar -xJC /usr/src/python --strip-components=1 -f python.tar.xz \
 	&& rm python.tar.xz \
 	\
+   
 	&& apk add --no-cache --virtual .build-deps  \
 		bzip2-dev \
 		gcc \
@@ -42,6 +43,8 @@ RUN set -ex \
 		tk \
 		tk-dev \
 		zlib-dev \
+        libssl1.0.0 \
+        libssl-dev \
 # add build deps before removing fetch deps in case there's overlap
 	&& apk del .fetch-deps \
 	\
